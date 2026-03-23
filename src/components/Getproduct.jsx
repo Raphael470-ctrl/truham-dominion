@@ -48,25 +48,26 @@ const Getproduct = () => {
         {/* mapping the card to all the products */}
         {filteredProducts.length > 0 ? (
         filteredProducts.map((product) => (
-          <div className="col-md-3 justify-content-center mb-4" key={product.id}>
-           <div className="col-md-3 justify-content-center mb-4">
+          
+           <div className="col-md-3 justify-content-center mb-4" key={product.id}>
               <div className="card shadow">
                 <div className="card-header">
                   <h5>{product.product_name}</h5>
                 </div>
-              <div className="card-body">
-                <img src={img_url + product.product_photo} alt="" className='product_img'  />
-              <
-            </div>
-            <div className="card-footer">
+                <div className="card-body">
+                  <img src={img_url + product.product_photo} alt="" className='product_img'  />
+                </div>
+              <div className="card-footer">
               <span className='span'>NewBrand</span>
               <p>{product.product_description}</p>
               <p>{product.product_cost}</p>
               <button className='btn btn-dark mt-2 w-100' onClick={() => navigate('/makepayment',{state: {product}})}>Purchase Now</button>
-            </div>
-          </div>
-        </div>
-          </div>
+              </div>
+              </div>
+              </div>
+
+            
+          
         ))
       ) : (
         <h5 className="text-center text-secondary">No products found.</h5>
