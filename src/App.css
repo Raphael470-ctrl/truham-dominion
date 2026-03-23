@@ -229,3 +229,22 @@ border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 }
+.form-inpud {
+  width: 100%;
+  padding: 16px 20px;
+  border: 2px solid #e2e8f0;
+  border-radius: 16px;
+  font-size: 16px;
+  background: #61dafb;
+  transition: all 0.3s ease;
+  font-family: inherit;
+  margin: 7.5px;
+}
+
+.form-inpud:focus {
+  outline: none;
+  border-color: #667eea;
+  text-decoration: black;
+  box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1);
+  transform: translateY(-5px);
+}

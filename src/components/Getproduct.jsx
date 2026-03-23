@@ -41,7 +41,7 @@ const Getproduct = () => {
         {/* search input  */}
         <div className='justify-content-center row mb-4'>
           <div className='col-md-6'>
-            <input type="text" className="form-input" placeholder='I am looking for...'
+            <input type="text" className="form-inpud" placeholder='I am looking for...'
             value={searchTerm}onChange={(e) => setSearchTerm(e.target.value)}/>
         </div>
       </div>
