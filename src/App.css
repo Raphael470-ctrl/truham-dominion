@@ -53,8 +53,8 @@
 }
 .navlinks:hover{
   text-transform: uppercase;
-  text-decoration: underline;
-  
+  text-decoration: #08ecec;
+ 
 }
 .text{
   text-align: left;
@@ -161,8 +161,8 @@ border: 1px solid rgba(255, 255, 255, 0.2);
 .navlinks:hover {
   transform: translateY(-5px) scale(1.02);
   box-shadow:#282c34
-
- }
+  text
+}
 
 /* Pure CSS active state using :active pseudo-class */
 .navlinks:active {
