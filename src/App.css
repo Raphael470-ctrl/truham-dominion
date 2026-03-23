@@ -1,0 +1,231 @@
+.App {
+  text-align: left;
+  background-color: #070707;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 20vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.navlinks{
+  margin: 5px;
+  padding: 10px;
+  text-decoration: none;
+  color: black;
+  cursor: pointer;
+  display: inline;
+
+  
+}
+.navlinks:active{
+  box-shadow: 0 2px #1f5f8b;
+  transform: translateY(4px);
+}
+.navlinks:hover{
+  text-transform: uppercase;
+  text-decoration: underline;
+  
+}
+.text{
+  text-align: left;
+}
+
+.btn {
+  background: none;
+  border: 2px solid #e2e8f0;
+  color:darkolivegreen;
+  padding: 12px 24px;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: progress;
+  transition: all 0.3s ease;
+  margin-top: 8px;
+
+}
+
+.btn:hover {
+  background: linear-gradient(#08ecec, lab(80.97% -67.19 33.06));
+  color: white;
+  border-color: #000000;
+  transform: translateY(-2px);
+}
+.form-input {
+  width: 100%;
+  padding: 16px 20px;
+  border: 2px solid #e2e8f0;
+  border-radius: 16px;
+  font-size: 16px;
+  background: none;
+  transition: all 0.3s ease;
+  font-family: inherit;
+  margin: 7.5px;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: #667eea;
+  background: transparent;
+  box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1);
+  transform: translateY(-5px);
+}
+.form-group {
+  width: 100%;
+  max-width: 500px;
+  margin-bottom: 20px;
+}
+.navlinks-container {
+ background: rgba(255, 255, 255, 0.1);
+backdrop-filter: blur(10px);
+padding: 40px;
+border-radius: 20px;
+box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.navlinks-menu {
+ display: flex;
+ flex-direction: column;
+ gap: 15px;
+  list-style: none;
+}
+
+.navlinks-item::before{
+  position: relative;
+  clip-path: circle(0% at 50% 50%);
+  transition: clip-path .6s cubic-bezier(1, 0, 0, 1);
+}
+.navlinks-link {
+  display:ruby;
+  padding: 18px 30px;
+  background: linear-gradient(145deg, #08e6ee, #e6e6e6);
+  color: #333;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-radius: 15px;
+  box-shadow:#282c34;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border:#1f5f8b;
+  cursor: pointer;
+  position:absolute;
+  overflow: hidden;
+}
+
+.navlinks:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180, transparent, rgba(255, 255, 255, 0.4), transparent);
+    transition: left 0.5s;
+}
+.navlinks-hover:before {
+  right: 100%;
+}
+
+.navlinks:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow:#282c34
+
+ }
+
+/* Pure CSS active state using :active pseudo-class */
+.navlinks:active {
+ transform: translateY(-5Px) scale(1.0);
+ box-shadow: #282c34;
+}
+
+        /* Focus state for accessibility */
+.navlink:focus {
+  outline: 3px solid rgba(255, 255, 255, 0.048);
+  outline-offset: 2px;
+}
+
+        /* Responsive design */
+@media (max-width: 768px) {
+.navlinks-container {
+    padding: 30px 20px;
+}
+            
+.navlinks-menu {
+    gap: 12px;
+  }
+           
+.navlinks-link {
+  padding: 16px 25px;
+  font-size: 16px;
+}
+}
+
+/* Horizontal layout for larger screens */
+@media (min-width: 1200px) {
+.navlinks-menu {
+   flex-direction: row;
+   gap: 20px;
+}
+            
+.navlinks-link {
+  padding: 15px 25px;
+  min-width: 160px;
+  text-align: left;
+ }
+}
+.product_img{
+  width: 100%;
+  height: 300px;
+}
+.span{
+  background-color: red;
+  text-decoration: #e6e6e6;
+}
+.title-3d{
+  /* background-image: url(src/bg.jpeg); */
+  background-clip: text;
+  background-size: 300% 300%;
+  background-color: transparent;
+  animation: animate 8s ease infinite;;
+}
+@keyframes animate{
+  0%{
+    background-position: 0%;
+}
+50%{
+  background-position: 0%;
+}
+
+}
