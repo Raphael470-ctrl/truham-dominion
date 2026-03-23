@@ -56,6 +56,7 @@ const Getproduct = () => {
                 </div>
               <div className="card-body">
                 <img src={img_url + product.product_photo} alt="" className='product_img'  />
+              <
             </div>
             <div className="card-footer">
               <span className='span'>NewBrand</span>
