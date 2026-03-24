@@ -47,7 +47,7 @@ const Makepayment = () => {
                 <input type="tel" placeholder='EnterPhone254xxxx' value={phone} onChange={(e) => setPhone(e.target.value)} required className='form-input'/>
                 </div>
                 
-                <button type='submit' className='btn btn-secondary' > pay For Your Product</button>
+                <button type='submit' className='btn btn-secondary form-control' > pay For Your Product</button>
             </form>
         </div>
     </div>
