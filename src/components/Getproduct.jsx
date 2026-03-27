@@ -58,7 +58,7 @@ const Getproduct = () => {
                   <img src={img_url + product.product_photo} alt="" className='product_img'  />
                 </div>
               <div className="card-footer text-info">
-              <span className='span'>NewBrand</span>
+              <span className='span text-light'>NewBrand</span>
               <p>{product.product_description}</p>
               <p>{product.product_cost}</p>
               <button className='gradient-button btn-dark mt-2 w-100' onClick={() => navigate('/makepayment',{state: {product}})}>Purchase Now</button>
