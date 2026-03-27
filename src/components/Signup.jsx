@@ -55,7 +55,7 @@ const Signup = () => {
                     <input type="password" placeholder="Enter Password" value= {password}className="form-input" onChange={(e) => setPassword(e.target.value)} required/><br />
                     <input type="tel" placeholder="Enter Phone Number " value = {phone}className="form-input" onChange={(e) => SetPhone (e.target.value)} required/>        
 
-                    <button type='submit' className='form-control'>
+                    <button type='submit' className='btn btn-primary form-control'>
                         SignUp
                     </button>
                     <p>Already have an account? <Link to='/SignIn'>SignIn</Link></p>

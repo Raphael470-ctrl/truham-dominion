@@ -51,7 +51,7 @@ const Signin = () => {
 
              <input type="password" placeholder='Password' className='form-input' value={password} onChange={(e) => setPassword(e.target.value)} required/><br />
             
-             <button className='btn btn-primary' type='submit' >
+             <button className='btn btn-primary form-control' type='submit' >
               SigIn
              </button>
              <p>Don't have an account? <Link to ='/SignUp'>SignUp</Link></p>
