@@ -51,7 +51,7 @@ const Getproduct = () => {
           
            <div className="col-md-3 justify-content-center mb-4" key={product.id}>
               <div className="card shadow bg-dark">
-                <div className="card-header text-info">
+                <div className="card-header text-info text-center">
                   <h5>{product.product_name}</h5>
                 </div>
                 <div className="card-body">
@@ -60,7 +60,7 @@ const Getproduct = () => {
               <div className="card-footer text-info">
               <span className='span text-light'>NewBrand</span>
               <p>{product.product_description}</p>
-              <p>{product.product_cost}</p>
+              <p className='text'>Cost <br /> Kes:{product.product_cost}</p>
               <button className='gradient-button btn-dark mt-2 w-100' onClick={() => navigate('/makepayment',{state: {product}})}>Purchase Now</button>
               </div>
               </div>
