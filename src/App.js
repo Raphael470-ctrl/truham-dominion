@@ -15,13 +15,15 @@ function App() {
       <header className="App-header">
         <h1 className='title'>P-Automotives: Buy OR Rent</h1>
       </header>
-      <section>
+      <section className='column'>
+        <div className='col-md-2'>
          <nav className='nav-link bg-dark'>
           <Link to='/' className='navlinks text-light'>Home</Link>
           <Link to='/SignUp' className='navlinks text-light'>SignUp</Link>
           <Link to='/SignIn' className='navlinks text-light'>SignIn</Link>
           <Link to='/AddProducts' className='navlinks text-light'>AddProduct</Link>
         </nav>
+        </div>
       </section>
       <Routes>
       <Route path='/signup' element={<Signup/>}/>
