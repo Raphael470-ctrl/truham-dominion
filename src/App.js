@@ -11,6 +11,7 @@ function App() {
 
   return (
     <BrowserRouter>
+    
     <div className="App">
       <header className="App-header">
         <h1 className='title'>P-Automotives: Buy OR Rent</h1>

@@ -1,63 +1,138 @@
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import axios from 'axios'
+import { FaUser, FaEnvelope, FaEye, FaEyeSlash } from 'react-icons/fa'
+
 
 const Signin = () => {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
-  const [loading, setloading] = useState("")
+  const [showPassword, setShowPassword] = useState(false)
+  const [loading, setLoading] = useState(false)
   const [error, setError] = useState("")
   const navigate = useNavigate()
-  // function to submitt data to the database
-  const submit = async(e) => {
-    // preventing the data form reloading before the data is saved 
+
+  const submit = async (e) => {
     e.preventDefault()
-    setloading("Please wait as we log you In")
-    // sending user inputs to the database (using tryh and catch )
+    setLoading(true)
+    setError("")
+
     try {
-        const data = new FormData()
-        // appending data to FormData 
-        data.append("email", email)
-        data.append("password", password)
-        // connecting the UI and posting to the database 
-        const response = await axios.post("https://raphaeltruham.alwaysdata.net/api/signin", data)
-        // uploading the loading message to empty 
-        setloading("")
-        // checking if the user exists
-        if (response.data.user) {
-          // storing the user in the browser local storage
-          localStorage.setItem("user",JSON.stringify(response.data.user))
-          // redirecting the login user to the landing page 
-          navigate('/')
-        } else {
-          // error for login failed 
-          setError(response.data.message)
+      const data = new FormData()
+      data.append("email", email.trim())
+      data.append("password", password)
+
+      const response = await axios.post(
+        "https://raphaeltruham.alwaysdata.net/api/signin", 
+        data,
+        {
+          headers: { 'Content-Type': 'multipart/form-data' },
         }
+      )
+
+      if (response.data.user) {
+        localStorage.setItem("user", JSON.stringify(response.data.user))
+        navigate('/')
+      } else {
+        setError(response.data.message || "Login failed")
+      }
     } catch (error) {
-      //updating loading message to empty
-      setloading("")
-      // updating the error message 
-      setError(error.response.data.message) 
+      const errorMessage = error.response?.data?.message || "Network error. Please try again."
+      setError(errorMessage)
+    } finally {
+      setLoading(false)
     }
   }
-  return (
-    <div className='row mt-4 justify-content-center'>
-        <div className='col-md-6 card shadow p-4'>
-          <h2>SignIn</h2>
-            <form onSubmit={submit}>
-              {loading}
-              {error}
-              <input type="email" placeholder='Email' className='form-input' value = {email} onChange={(e) => setEmail(e.target.value)} required /><br />
 
-             <input type="password" placeholder='Password' className='form-input' value={password} onChange={(e) => setPassword(e.target.value)} required/><br />
-            
-             <button className='btn btn-primary form-control' type='submit' >
-              SigIn
-             </button>
-             <p>Don't have an account? <Link to ='/SignUp'>SignUp</Link></p>
-            </form>
-          
+  return (
+    <div className="signin-page">
+      <div className="signin-container">
+        <div className="glass-card">
+          {/* Header with Icon */}
+          <div className="card-header">
+            <div className="header-icon">
+              <FaUser className="main-icon" />
+            </div>
+            <h2 className="card-title">Welcome Back</h2>
+            <p className="card-subtitle">Sign in to continue to your account</p>
+          </div>
+
+          <form onSubmit={submit} className="signin-form">
+            {error && (
+              <div className="error-alert">
+                <span className="error-icon">⚠️</span>
+                {error}
+              </div>
+            )}
+
+            {/* Email Input */}
+            <div className="input-group">
+              <div className="input-wrapper">
+                <FaEnvelope className="input-icon" />
+                <input
+                  id="email"
+                  type="email"
+                  className="form-input form-fill"
+                  placeholder="Enter your email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
+                  disabled={loading}
+                />
+              </div>
+            </div>
+
+            {/* Password Input */}
+            <div className="input-group">
+              <div className="input-wrapper">
+                <FaEnvelope className="input-icon" />
+                <input
+                  id="password"
+                  type={showPassword ? "text" : "password"}
+                  className="form-input form-fill"
+                  placeholder="Enter your password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  required
+                  disabled={loading}
+                />
+                <button
+                  type="button"
+                  className="password-toggle"
+                  onClick={() => setShowPassword(!showPassword)}
+                  disabled={loading}
+                >
+                  {showPassword ? <FaEyeSlash /> : <FaEye />}
+                </button>
+              </div>
+            </div>
+
+            <button 
+              className="submit-btn"
+              type="submit"
+              disabled={loading || !email || !password}
+            >
+              {loading ? (
+                <>
+                  <div className="spinner"></div>
+                  Signing In...
+                </>
+              ) : (
+                'Sign In'
+              )}
+            </button>
+
+            <div className="form-footer">
+              <p>
+                Don't have an account?{' '}
+                <Link to="/signup" className="signup-link">
+                  Create one
+                </Link>
+              </p>
+            </div>
+          </form>
         </div>
+      </div>
     </div>
   )
 }
